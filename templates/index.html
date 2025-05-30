@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <title>{% block title %}{% endblock title %} - GYM</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7LlZcikRdDKYZY455uHz6dNDqvdZXdWGaqg&s"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="bg-blue-950">
+      <div class="flex justify-between items-center px-4 py-2">
+        <!-- Left: Logo -->
+        <a href="/">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7LlZcikRdDKYZY455uHz6dNDqvdZXdWGaqg&s"
+            alt="this is an img"
+            class="h-14"
+          />
+        </a>
+
+        <!-- Right: Navigation -->
+        <nav class="flex space-x-4">
+          <a
+            href="#Home"
+            class="font-bold rounded-lg px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900"
+          >
+            Home
+          </a>
+          <a
+            href="#MemberShip"
+            class="font-bold rounded-lg px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900"
+          >
+            Membership
+          </a>
+          <a
+            href="/Login"
+            class="font-bold rounded-lg px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900"
+          >
+            Login
+          </a>
+          <a
+            href="/Contacts"
+            class="font-bold rounded-lg px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900"
+          >
+            Contacts
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div
+        class="relative w-full h-screen bg-[url('https://t3.ftcdn.net/jpg/04/29/35/62/360_F_429356296_CVQ5LkC6Pl55kUNLqLisVKgTw9vjyif1.jpg')] bg-cover bg-center"
+        id="Home"
+      >
+        <!-- Overlay -->
+
+        <!-- Content -->
+        <div
+          class="relative z-10 flex items-center justify-center h-full text-center px-4"
+        >
+          <div>
+            <h1 class="text-4xl md:text-6xl text-white font-bold mb-4">
+              "Strength doesn't come from what you can do."
+            </h1>
+            <p class="text-xl md:text-2xl text-white font-light">
+              "It comes from overcoming the things you once thought you
+              couldn't."
+            </p>
+            <button
+              class="bg-white  hover:bg-blue-950 text-black font-semibold py-3 px-4 rounded-full shadow-lg transition duration-300 mt-3"
+            >
+              Book a Free Trial
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="MemberShip"></div>
+    </main>
+
+    <footer>
+      <p class="bg-blue-950 text-center text-white">
+        This Site Belongs To GYM &copy;2025
+      </p>
+    </footer>
+
+    {% block body %} {% endblock body %}
+  </body>
+</html>
