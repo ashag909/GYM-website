@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,url_for
 from flask_wtf import FlaskForm
 #it is used for form velidation and managing the form
 from wtforms import StringField,PasswordField,SubmitField
@@ -32,13 +32,14 @@ def signup():
     
     render_template("signup.html")
 
-@app.route("/login")
+@app.route("/Login")
 def login():
-    render_template("signin.html")
+    return render_template("signin.html")
 
 @app.route("/membership")
 def member():
-    render_template("forms.html")
+    return render_template("forms.html")
+#@app.route("/")
 
 if __name__=="__main__":
     app.run(debug=True)
