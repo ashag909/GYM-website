@@ -38,8 +38,10 @@ def login():
 
 @app.route("/membership")
 def member():
+    return render_template("membership.html")
+@app.route("/contact")
+def contacts():
     return render_template("forms.html")
-#@app.route("/")
 
 if __name__=="__main__":
     app.run(debug=True)
