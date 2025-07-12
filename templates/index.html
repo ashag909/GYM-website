@@ -32,7 +32,7 @@
         <!-- Right: Navigation -->
         <nav class="flex space-x-4">
           <a
-            href="#Home"
+            href="{{url_for('hom')}}"
             class="font-bold rounded-lg px-2 py-2 text-white hover:bg-gray-100 hover:text-gray-900"
           >
             Home
@@ -59,45 +59,7 @@
       </div>
     </header>
 
-    <main>
-      <div
-        class="relative w-full h-screen bg-[url('https://t3.ftcdn.net/jpg/04/29/35/62/360_F_429356296_CVQ5LkC6Pl55kUNLqLisVKgTw9vjyif1.jpg')] bg-cover bg-center"
-        id="Home"
-      >
-        <!-- Overlay -->
-
-        <!-- Content -->
-        <div
-          class="relative z-10 flex items-center justify-center h-full text-center px-4"
-        >
-          <div>
-            <h1 class="text-4xl md:text-6xl text-white font-bold mb-4">
-              "Strength doesn't come from what you can do."
-            </h1>
-            <p class="text-xl md:text-2xl text-white font-light">
-              "It comes from overcoming the things you once thought you
-              couldn't."
-            </p>
-            <button
-              class="bg-white  hover:bg-blue-950 text-black font-semibold py-3 px-4 rounded-full shadow-lg transition duration-300 mt-3"
-            >
-              Book a Free Trial
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div id="MemberShip"></div>
-    </main>
-
-    <footer>
-      <div>
-        
-      </div>
-      <p class="bg-blue-950 text-center text-white">
-        This Site Belongs To GYM &copy;2025
-      </p>
-    </footer>
+  
 
     {% block body %} {% endblock body %}
   </body>

@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
-</head>
-<body>
-    <div class="bg-teal-900">
+{% extends 'index.html' %}
+{% block title %}Membership {% endblock title %} 
+{% block body %}
 
-    </div>
-    <h1>this is membership</h1>
-</body>
-</html>
+<h1 class="bg-neutral-400">this is MemberShip page</h1>
+
+{% endblock body %}
