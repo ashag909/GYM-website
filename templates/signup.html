@@ -1,7 +1,94 @@
 {% extends 'index.html' %}
 {% block title %}signup {% endblock title %} 
 {% block body %}
-<h1 class="bg-amber-950">this is signup page</h1>
+<style>
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #9ba2c0;
+    margin: 0;
+    padding: 0;
+}
 
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
 
+.banner {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox-group label {
+    display: block;
+    margin: 5px 0;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #ea030f;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #f76510;
+}
+   
+</style>
+
+<div>
+    <div>
+      <div class="form-container">
+        <img src="https://t4.ftcdn.net/jpg/03/50/81/89/360_F_350818949_lJTfzSTDr79e9Kn55PUVZjN19ct20uGc.jpg" class="banner" alt="Gym Banner">
+        <h1>Gym Sign Up</h1>
+        <form method="POST">
+            <label>Full Name*</label>
+            <input type="text" name="full_name" required>
+
+            <label>Email Address*</label>
+            <input type="email" name="email" required>
+
+            <label>Phone Number*</label>
+            <input type="text" name="phone" required>
+
+            <label>Age</label>
+            <input type="number" name="age">
+
+            <label>What type of workout do you prefer?</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="workout" value="Cardiovascular"> Cardiovascular</label>
+                <label><input type="checkbox" name="workout" value="Strength"> Strength</label>
+                <label><input type="checkbox" name="workout" value="Yoga"> Yoga</label>
+                <label><input type="checkbox" name="workout" value="Flexibility"> Flexibility</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>  
+    </div>
+</div>
 {% endblock body %}
