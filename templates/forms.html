@@ -2,39 +2,61 @@
 {% block title %}contact {% endblock title %} 
 {% block body %}
 
-<div class="bg-gray-900 w-screen h-screen" >
-        
-<div class="text-white">
-<h3>GET IN TOUCH</h3>
-<H1>CONTACT US</H1>
-<P>Send us an inquire,or drop our fitness center in persion to have a look around.</P>
+<div class="bg-black w-screen h-screen flex items-center justify-center p-8">
+  <div class="max-w-5xl w-full bg-gray-800 rounded-2xl shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
 
-<h3>ADDRESS</h1>
-<P>Bhubaneswer,Odisha,India</P>
-<h3>PHONE</h3>
-<P>+91 8117923909</P>
+    <!-- Left Side - Info -->
+    <div class="text-white space-y-6">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-400">GET IN TOUCH</h3>
+        <h1 class="text-4xl font-bold">CONTACT US</h1>
+        <p class="text-gray-300 mt-2">
+          "Let’s connect—drop us a message or come by to experience the energy of our fitness center."
+        </p>
+      </div>
 
-<h3>EMAIL</h3>
-<P>goudaasharani86@gmail.com</P>
+      <div class="space-y-4">
+        <div>
+          <h3 class="text-lg font-semibold">ADDRESS</h3>
+          <p class="text-gray-400">Bhubaneswar, Odisha, India</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold">PHONE</h3>
+          <p class="text-gray-400">+91 8117923909</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold">EMAIL</h3>
+          <p class="text-gray-400">goudaasharani86@gmail.com</p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Right Side - Form -->
+    <div class="bg-gray-700 p-6 rounded-xl shadow-md text-white">
+      <form class="space-y-5">
+        <div>
+          <label class="block text-sm mb-1">Your Name</label>
+          <input type="text" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">Your Email</label>
+          <input type="email" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">Subject</label>
+          <input type="text" class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div>
+          <label class="block text-sm mb-1">Your Message (optional)</label>
+          <textarea class="w-full p-2 rounded-lg bg-gray-800 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+        <button class="w-full bg-blue-800 hover:bg-blue-500 transition p-3 rounded-lg font-semibold">
+          SEND
+        </button>
+      </form>
+    </div>
 
-
-</div>
-<div>
-    <label>Your name</label>
-    <input type="text">
-    <label>Your email</label>
-    <input type="email">
-    <label>Subject</label>
-    <input type="text">
-    <label >Your message(optional)</label>
-    <input type="text">
-    <button cl>SUBMIT</button>
-
-</div>
-
-
-
+  </div>
 </div>
 
 {% endblock body %}
