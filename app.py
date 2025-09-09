@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired,Email,ValidationError
 import bcrypt
 
 
+
 app = Flask(__name__)
 app.secret_key='yuerbdsbnvyufv'
 
