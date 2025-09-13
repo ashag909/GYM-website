@@ -3,10 +3,19 @@ from flask_wtf import FlaskForm
 #it is used for form velidation and managing the form
 from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import DataRequired,Email,ValidationError
+from wtforms.widgets import TextArea
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from werkzeug.security import generate_password_hash
+from flask_login import UserMixin,login_user,LoginManager,login_required,logout_user,current_user
+
 import bcrypt
 
 
 
+
+
+from  datetime import date
 app = Flask(__name__)
 app.secret_key='yuerbdsbnvyufv'
 
