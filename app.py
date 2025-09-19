@@ -13,8 +13,6 @@ app.config.from_object(Config)
 
 # Initialize database
 db.init_app(app)
-
-
 # --- Forms ---
 class Signupform(FlaskForm):
     name = StringField("Name", validators=[DataRequired()])
