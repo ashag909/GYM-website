@@ -3,7 +3,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email
 import bcrypt
-
 from models import db, User
 from config import Config
 
