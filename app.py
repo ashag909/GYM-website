@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Initialize database
+
 db.init_app(app)
 # --- Forms ---
 class Signupform(FlaskForm):
