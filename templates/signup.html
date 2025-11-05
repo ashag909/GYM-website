@@ -10,7 +10,7 @@
 }
 
 .form-container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 40px auto;
     background: white;
     padding: 20px 30px;
@@ -74,9 +74,7 @@ color: rgb(91, 109, 163);
             <label>Full Name*</label>
             <input type="text" name="full_name" required>
 
-            <label>Email Address*</label>
-            <input type="email" name="email" required>
-
+            
             <label>Phone Number*</label>
             <input type="text" name="phone" required>
 
@@ -90,6 +88,11 @@ color: rgb(91, 109, 163);
                 <label><input type="checkbox" name="workout" value="Yoga"> Yoga</label>
                 <label><input type="checkbox" name="workout" value="Flexibility"> Flexibility</label>
             </div>
+            <label>Email Address*</label>
+            <input type="email" name="email" required>
+            <label>Password*</label>
+            <input type="password" name="password" required>
+
 
             <button type="submit">Submit</button> <span class="sign"><a href={{url_for('login')}}>Sign In if you have an acoount ?</a></span>
         </form>  

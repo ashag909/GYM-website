@@ -9,6 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 # Initialize app
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']
 
 app.config.from_object(Config)
 
