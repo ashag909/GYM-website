@@ -60,12 +60,17 @@ def member():
 def contacts():
     return render_template("forms.html")
 
-@app.route("/home")
-def hom():
-    return render_template("home.html")
+
+
 
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)

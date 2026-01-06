@@ -24,11 +24,46 @@
               "It comes from overcoming the things you once thought you
               couldn't."
             </p>
-            <button
-              class="bg-white  hover:bg-black hover:text-white text-black  font-semibold py-3 px-4 rounded-full shadow-lg transition duration-300 mt-3"
-            >
-             <a href="">Book a Free Trial</a> 
-            </button>
+            <button onclick="showForm()"
+  class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+  💪 Start Free Trial
+</button>
+<div id="trialForm" class="hidden mt-8 max-w-md bg-white p-6 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold text-center mb-4">Book Your Free Trial</h2>
+  <p class="text-gray-600 text-center mb-6">
+    Fill in your details and our team will contact you shortly.
+  </p>
+
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Full Name" required
+      class="w-full mb-4 p-3 border rounded-lg">
+
+    <input type="tel" placeholder="Mobile Number" required
+      class="w-full mb-4 p-3 border rounded-lg">
+
+    <input type="email" placeholder="Email (optional)"
+      class="w-full mb-4 p-3 border rounded-lg">
+
+    <input type="text" placeholder="Preferred Workout Time"
+      class="w-full mb-4 p-3 border rounded-lg">
+
+    <button type="submit"
+      class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
+      ✅ Book Free Trial
+    </button>
+  </form>
+</div>
+<div id="successMessage" class="hidden mt-8 max-w-md bg-green-100 p-6 rounded-xl text-center">
+  <h2 class="text-2xl font-bold text-green-700">🎉 Thank You!</h2>
+  <p class="text-green-600 mt-2">
+    Your free trial request has been received.  
+    Our team will contact you shortly.
+  </p>
+</div>
+
+
+
+
           </div>
         </div>
       </div>
