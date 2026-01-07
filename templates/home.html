@@ -1,77 +1,91 @@
-{% extends 'index.html' %}
-{% block title %}Home {% endblock title %} 
-{% block body %}
+{% extends 'index.html' %} {% block title %}Home {% endblock title %} {% block
+body %}
 
+<main>
+  <div
+    class="relative w-full h-screen bg-[url('https://t3.ftcdn.net/jpg/04/29/35/62/360_F_429356296_CVQ5LkC6Pl55kUNLqLisVKgTw9vjyif1.jpg')] bg-cover bg-center"
+    id="Home"
+  >
+    <!-- Overlay -->
 
-
-
-    <main>
-      <div
-        class="relative w-full h-screen bg-[url('https://t3.ftcdn.net/jpg/04/29/35/62/360_F_429356296_CVQ5LkC6Pl55kUNLqLisVKgTw9vjyif1.jpg')] bg-cover bg-center"
-        id="Home"
-      >
-        <!-- Overlay -->
-
-        <!-- Content -->
-        <div
-          class="relative z-10 flex items-center justify-center h-full text-center px-4"
+    <!-- Content -->
+    <div
+      class="relative z-10 flex items-center justify-center h-full text-center px-4"
+    >
+      <div>
+        <h1 class="text-4xl md:text-6xl text-white font-bold mb-4">
+          "Strength doesn't come from what you can do."
+        </h1>
+        <p class="text-xl md:text-2xl text-white font-light">
+          "It comes from overcoming the things you once thought you couldn't."
+        </p><br>
+        <button
+          onclick="showForm()"
+          class="bg-blue-900 text-white px-2 py-2 rounded-lg font-semibold hover:bg-blue-700"
         >
-          <div>
-            <h1 class="text-4xl md:text-6xl text-white font-bold mb-4">
-              "Strength doesn't come from what you can do."
-            </h1>
-            <p class="text-xl md:text-2xl text-white font-light">
-              "It comes from overcoming the things you once thought you
-              couldn't."
-            </p>
-            <button onclick="showForm()"
-  class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
-  💪 Start Free Trial
-</button>
-<div id="trialForm" class="hidden mt-8 max-w-md bg-white p-6 rounded-xl shadow-lg">
-  <h2 class="text-2xl font-bold text-center mb-4">Book Your Free Trial</h2>
-  <p class="text-gray-600 text-center mb-6">
-    Fill in your details and our team will contact you shortly.
-  </p>
+          💪 Start Free Trial
+        </button>
+        <div
+          id="trialForm"
+          class="hidden mt-8 max-w-md bg-white p-6 rounded-xl shadow-lg"
+        >
+          <h2 class="text-2xl font-bold text-center mb-4">
+            Book Your Free Trial
+          </h2>
+          <p class="text-gray-600 text-center mb-6">
+            Fill in your details and our team will contact you shortly.
+          </p>
 
-  <form onsubmit="submitForm(event)">
-    <input type="text" placeholder="Full Name" required
-      class="w-full mb-4 p-3 border rounded-lg">
+          <form onsubmit="submitForm(event)">
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              class="w-full mb-4 p-3 border rounded-lg"
+            />
 
-    <input type="tel" placeholder="Mobile Number" required
-      class="w-full mb-4 p-3 border rounded-lg">
+            <input
+              type="tel"
+              placeholder="Mobile Number"
+              required
+              class="w-full mb-4 p-3 border rounded-lg"
+            />
 
-    <input type="email" placeholder="Email (optional)"
-      class="w-full mb-4 p-3 border rounded-lg">
+            <input
+              type="email"
+              placeholder="Email (optional)"
+              class="w-full mb-4 p-3 border rounded-lg"
+            />
 
-    <input type="text" placeholder="Preferred Workout Time"
-      class="w-full mb-4 p-3 border rounded-lg">
+            <input
+              type="text"
+              placeholder="Preferred Workout Time"
+              class="w-full mb-4 p-3 border rounded-lg"
+            />
 
-    <button type="submit"
-      class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
-      ✅ Book Free Trial
-    </button>
-  </form>
-</div>
-<div id="successMessage" class="hidden mt-8 max-w-md bg-green-100 p-6 rounded-xl text-center">
-  <h2 class="text-2xl font-bold text-green-700">🎉 Thank You!</h2>
-  <p class="text-green-600 mt-2">
-    Your free trial request has been received.  
-    Our team will contact you shortly.
-  </p>
-</div>
-
-
-
-
-          </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700"
+            >
+              ✅ Book Free Trial
+            </button>
+          </form>
+        </div>
+        <div
+          id="SuccessMessage"
+          class="hidden mt-8 max-w-md bg-green-100 p-6 rounded-xl text-center"
+        >
+          <h2 class="text-2xl font-bold text-green-700">🎉 Thank You!</h2>
+          <p class="text-green-600 mt-2">
+            Your free trial request has been received. Our team will contact you
+            shortly.
+          </p>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div id="MemberShip"></div>
-    </main>
+  <div id="MemberShip"></div>
+</main>
 
-    
-
-     
-  {% endblock body %}
+{% endblock body %}

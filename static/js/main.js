@@ -7,5 +7,8 @@ console.log("hell there")
   function submitForm(event) {
     event.preventDefault();
     document.getElementById("trialForm").classList.add("hidden");
-    document.getElementById("successMessage").classList.remove("hidden");
+    document.getElementById("SuccessMessage").classList.remove("hidden");
+    setTimeout(()=>{
+      document.getElementById("SuccessMessage").classList.add("hidden");
+    }, 2000);
   }
