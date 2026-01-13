@@ -1,11 +1,11 @@
 from flask import Flask, render_template, url_for, request, flash, redirect
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email
+
 import bcrypt
 from models import db, User
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
+from forms import LoginForm, Signupform
+from flask_login import login_user,current_user
 
 # Initialize app
 app = Flask(__name__)
@@ -16,12 +16,8 @@ app.config.from_object(Config)
 # Initialize database
 
 db.init_app(app)
-# --- Forms ---
-class Signupform(FlaskForm):
-    name = StringField("Name", validators=[DataRequired()])
-    email = StringField("Email", validators=[DataRequired(), Email()])
-    password = PasswordField("Password", validators=[DataRequired()])
-    submit = SubmitField("Register")
+
+
 
 
 # --- Routes ---
@@ -48,9 +44,21 @@ def signup():
         return redirect(url_for("home"))
     return render_template("signup.html", form=form)
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
-    return render_template("signin.html")
+    if current_user.is_authenticated:
+       return redirect(url_for('index'))
+    form=LoginForm()
+    if form.validate_on_submit():
+       user=User.query.filter_by(username=form.username.data).first()
+       if user is None or not user.check_password(form.password.data):
+           flash("Invalid username or password")
+           return redirect(url_for('login'))
+       login_user(user, remember=form.remember_me.data)
+       next_page=request.args.get('next')
+       return redirect(next_page) if next_page else redirect(url_for('index'))
+
+    return render_template("signin.html",title='Sign In',form=form)
 
 @app.route("/membership")
 def member():
