@@ -9,7 +9,7 @@ from flask_login import login_user,current_user
 
 # Initialize app
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Ilovemyfamily%40143@localhost/gymdb'
+#app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Ilovemyfamily%40143@localhost/gymdb'
 app.config['SECRET_KEY']= "yuerbdsbnvyufv"
 app.config.from_object(Config)
 
