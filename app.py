@@ -16,10 +16,6 @@ app.config.from_object(Config)
 # Initialize database
 
 db.init_app(app)
-
-
-
-
 # --- Routes ---
 @app.route("/")
 def home():
