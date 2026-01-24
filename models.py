@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
-
+import bcrypt
 db = SQLAlchemy()
 
 class User(db.Model, UserMixin):
@@ -11,3 +11,6 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"<User {self.full_name}>"
+def check_password(self,password):
+    return bcrypt.checkpw(password.encode('utf-8'),
+                          self.password.encode('utf-8'))

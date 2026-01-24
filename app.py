@@ -1,22 +1,32 @@
 from flask import Flask, render_template, url_for, request, flash, redirect
 
-import bcrypt
-from models import db, User
+
+from models import db, User,check_password
 from config import Config
-from flask_sqlalchemy import SQLAlchemy
+import os
 from forms import LoginForm, Signupform
-from flask_login import login_user,current_user
+from flask_login import login_user,current_user,LoginManager
 
 # Initialize app
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Ilovemyfamily%40143@localhost/gymdb'
-app.config['SECRET_KEY']= "yuerbdsbnvyufv"
+app.config['SECRET_KEY']=os.environ.get('SECRET_KEY','dev-secret')
 app.config.from_object(Config)
 
 # Initialize database
 
 db.init_app(app)
+
+login_manager=LoginManager()
+login_manager.init_app(app)
+login_manager.login_view='login'
+
+
+
 # --- Routes ---
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 @app.route("/")
 def home():
     return render_template("home.html")
@@ -29,7 +39,7 @@ def signup():
         email = form.email.data
         password = form.password.data
 
-        hashed_psw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+        hashed_psw = check_password.hashpw(password.encode("utf-8"), check_password.gensalt())
 
         # Save to DB
         user = User(name=name, email=email, password=hashed_psw.decode("utf-8"))
@@ -43,16 +53,16 @@ def signup():
 @app.route("/login", methods=['GET','POST'])
 def login():
     if current_user.is_authenticated:
-       return redirect(url_for('index'))
+       return redirect(url_for('home'))
     form=LoginForm()
     if form.validate_on_submit():
-       user=User.query.filter_by(username=form.username.data).first()
+       user=User.query.filter_by(email=form.email.data).first()
        if user is None or not user.check_password(form.password.data):
            flash("Invalid username or password")
            return redirect(url_for('login'))
        login_user(user, remember=form.remember_me.data)
        next_page=request.args.get('next')
-       return redirect(next_page) if next_page else redirect(url_for('index'))
+       return redirect(next_page) if next_page else redirect(url_for('home'))
 
     return render_template("signin.html",title='Sign In',form=form)
 

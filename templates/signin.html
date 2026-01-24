@@ -11,7 +11,7 @@
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     
-    <form action="#" method="POST" novalidate class="space-y-6">
+    <form action="{{url_for('login')}}" method="POST" novalidate class="space-y-6">
       {{form.hidden_tag()}}
       <div>
         <label for="email" class="block text-sm/6 font-medium text-gray-100">Email address</label>
