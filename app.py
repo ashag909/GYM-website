@@ -1,12 +1,10 @@
 from flask import Flask, render_template, url_for, request, flash, redirect
-
-
-from models import db, User,check_password
+from models import db, User
 from config import Config
-import os
 from forms import LoginForm, Signupform
 from flask_login import login_user,current_user,LoginManager
-
+import os 
+import bcrypt
 # Initialize app
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Ilovemyfamily%40143@localhost/gymdb'
@@ -39,10 +37,10 @@ def signup():
         email = form.email.data
         password = form.password.data
 
-        hashed_psw = check_password.hashpw(password.encode("utf-8"), check_password.gensalt())
+        hashed_psw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
         # Save to DB
-        user = User(name=name, email=email, password=hashed_psw.decode("utf-8"))
+        user=User.query.filter_by(email=form.username.data).first()
         db.session.add(user)
         db.session.commit()
 
