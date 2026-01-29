@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, flash, redirect
 from models import db, User
 from config import Config
 from forms import LoginForm, Signupform
-from flask_login import login_user,current_user,LoginManager
+from flask_login import login_user,current_user,LoginManager,login_required
 import os 
 import bcrypt
 # Initialize app
@@ -15,10 +15,10 @@ app.config.from_object(Config)
 
 db.init_app(app)
 
+
 login_manager=LoginManager()
 login_manager.init_app(app)
 login_manager.login_view='login'
-
 
 
 # --- Routes ---
@@ -65,6 +65,7 @@ def login():
     return render_template("signin.html",title='Sign In',form=form)
 
 @app.route("/membership")
+@login_required
 def member():
     return render_template("membership.html")
 
