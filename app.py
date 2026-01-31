@@ -37,7 +37,7 @@ def signup():
         email = form.email.data
         password = form.password.data
 
-        hashed_psw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+        '''hashed_psw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
 
         # Save to DB
         user=User.query.filter_by(email=form.username.data).first()
@@ -46,7 +46,28 @@ def signup():
 
         flash(f"{name} registered successfully!", "success")
         return redirect(url_for("home"))
-    return render_template("signup.html", form=form)
+    return render_template("signup.html", form=form)'''
+        existing_user=User.query.filter_by(email=email).first()
+
+        if existing_user:
+            flash("Email already registered. Please login.")
+            return redirect(url_for("login"))
+        
+        hashed_psw=bcrypt.hashpw(
+            password.encode("utf-8"),
+            bcrypt.gensalt()
+        ).decode("utf-8")
+        
+        user=User(
+            full_name=name,
+            email=email,
+            password=hashed_psw
+        )
+        db.session.add(user)
+        db.session.commit()
+        flash("Registered successfully! Please login.","Success")
+        return redirect(url_for('login'))
+    return render_template("signup.html",form=form)
 
 @app.route("/login", methods=['GET','POST'])
 def login():
@@ -54,7 +75,7 @@ def login():
        return redirect(url_for('home'))
     form=LoginForm()
     if form.validate_on_submit():
-       user=User.query.filter_by(email=form.email.data).first()
+       user=User.query.filter_by(email=form.username.data).first()
        if user is None or not user.check_password(form.password.data):
            flash("Invalid username or password")
            return redirect(url_for('login'))
