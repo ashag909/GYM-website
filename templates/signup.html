@@ -11,19 +11,17 @@
     <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Gym Sign Up</h1>
 
     <form method="POST" class="space-y-4">
+      {{ form.hidden_tag()}}
       <div>
-        <label class="block font-semibold mb-1">Full Name*</label>
-        <input type="text" name="full_name" required
-               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+        {{ form.name.label(class="block font-semibold mb-1")}}
+        {{ form.name(class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400")}}
       </div>
 
       <div>
-        <label class="block font-semibold mb-1">Phone Number*</label>
-        <input type="text" name="phone" required
-               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
-      </div>
+        {{ form.email.label(class="block font-semibold mb-1")}}
+        {{ form.email(class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400")}}
 
-      <div>
+     <!--<div>
         <label class="block font-semibold mb-1">Age</label>
         <input type="number" name="age"
                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
@@ -51,23 +49,18 @@
         </div>
       </div>
 
-      <div>
-        <label class="block font-semibold mb-1">Email Address*</label>
-        <input type="email" name="email" required
-               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
-      </div>
+      
 
+      
+--> 
       <div>
-        <label class="block font-semibold mb-1">Password*</label>
-        <input type="password" name="password" required
-               class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400">
+        {{ form.password.label(class="block font-semibold mb-1") }}
+        {{ form.password(class="w-full border rounded-md px-3 py-2")}}
       </div>
 
       <div class="flex items-center justify-between mt-6">
-        <button type="submit"
-                class="bg-red-600 hover:bg-orange-500 text-white font-semibold px-5 py-2 rounded-md transition">
-          Submit
-        </button>
+        {{ form.submit(class="bg-red-600 hover:bg-orange-500 text-white font-semibold px-5 py-2 rounded-md")}}
+      </div>
         <span class="text-blue-600 hover:underline">
           <a href="{{ url_for('login') }}">Sign in if you have an account?</a>
         </span>
