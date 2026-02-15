@@ -7,7 +7,7 @@ import os
 import bcrypt
 # Initialize app
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:Ilovemyfamily%40143@localhost/gymdb'
+
 app.config['SECRET_KEY']=os.environ.get('SECRET_KEY','dev-secret')
 app.config.from_object(Config)
 
